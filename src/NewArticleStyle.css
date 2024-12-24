@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+header {
+    background: #35424a;
+    color: white;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+}
+
+.blog-post {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post h2 {
+    color: #35424a;
+    font-size: 22px;
+}
+
+footer {
+    background: #35424a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background: #35424a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #e8491d;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    header {
+        text-align: center;
+        padding-top: 15px;
+    }
+
+    .blog-post {
+        padding: 15px;
+    }
+
+    .blog-post h2 {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    textarea {
+        padding: 8px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding-top: 10px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .blog-post h2 {
+        font-size: 18px;
+    }
+
+    input[type="text"],
+    textarea {
+        padding: 6px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+    }
+}

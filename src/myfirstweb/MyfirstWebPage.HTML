@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            color: white; 
+            overflow: scroll;
+            font-size: x-large;
+        }
+
+        .video-background {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%; 
+            height: 100%; 
+            z-index: -1; 
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        } 
+
+       
+        body {
+            background-image: url(https://images.squarespace-cdn.com/content/v1/5fe4caeadae61a2f19719512/c632cb68-1346-4d50-909b-41ca41ad7e8e/Wuthering+Waves+-+Flow); 
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+        }
+        
+
+        p {
+            font-size: larger;
+        }
+
+        ol {
+        list-style: none;
+        counter-reset: list-counter; 
+        padding: 0; 
+        margin: 0; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        }
+
+        li {
+        counter-increment: list-counter; 
+        position: relative; 
+        margin: 10px 0; 
+        text-align: center; 
+        }
+
+        table {
+        width: 80%; 
+        border-collapse: collapse; 
+        margin: 20px auto; 
+         }
+
+        .overlay {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.5); 
+            z-index: 0; 
+        }
+        
+        header, main, footer {
+            position: relative; 
+            z-index: 2; 
+            padding: 20px; 
+            text-align: center; 
+        }
+
+        a {
+        color: #ffffff; 
+        text-decoration: none; 
+        }
+
+    a:hover {
+        color: #00fffb; 
+        text-decoration: underline; 
+        }       
+        
+        
+    </style>
+</head>
+
+<body>
+    <!-- Play button, this will  play the music  that i have linked online through dropbox service. -->
+    <button 
+    id="play-button" 
+    style="position: relative; z-index: 1;">Play Music
+    </button>
+
+    <!-- this is a javascript that is executing if you click the play button -->
+    <script>
+        document.getElementById('play-button').onclick = function() {
+            var audio = document.getElementById('background-audio');
+            audio.play().catch(function(error) {
+                console.log('Error playing audio:', error);
+            });
+        };
+    </script>
+
+
+    <!-- this is the syntax for the source and the nature of the audio's control. -->
+    <audio id="background-audio" loop>
+        <source src="https://dl.dropboxusercontent.com/scl/fi/ga9ralp47heq4k1deecmh/Luna-Fake-Ascension-OST-Menu-BGM-Looped-Punishing-Gray-Raven.mp3?rlkey=nz5hcls348s8snq26zfjpe4y6&st=0j906q7l" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+     <!-- this is to initialize an overlay to reduce the brightness the video, also to make text more easy to read. -->
+    <div class="overlay"></div>
+
+    <!-- this is to initialize the video to immediately played, however because this is local, i also set up an universal background for other device. -->
+    <div class="video-background">
+        <video autoplay loop muted>
+            <source src="videoplayback.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+
+    </div>
+
+    <header>
+        <h1>Welcome To HTML </h1>
+    </header>
+    
+    <main>
+        <p><i>Sarò lì per tutti... Mentre ci dirigiamo verso il nostro futuro condiviso, lasciando il passato alle spalle.</i>
+        <p><b>" I will be there for everyone... As we head toward our shared future, leaving the past behind."<br>-Rover, founder of Xianzhou</br></b>
+        <p><i></i>
+
+
+        <p>Hello, my name is Etta from the Informatic Department, i am from Central Kalimantan, i like all <b>genres of music/song</b> and in fictional stories, I prefer <i>Dystopian/Sci-fi</i> settings.
+        <br> I actually broke my arm in 2013 during Ramadan.
+        <p>Now, what is my hobby?</p>
+
+        <ol>
+            <li>Playing Video Games</li>
+            <li>Listening to Music according to my mood</li>
+            <li>Using AI as my listener for any fictional story I have imagined</li>
+        </ol>
+
+        <p>Now, what is my favorite website? Obviously, it is the almighty 
+            <br><a href="https://www.youtube.com/"  target="_blank">YouTube</a></br>
+            <br><a href="https://otakudesu.cloud/"  target="_blank">OtakuDesu</a></br>
+            <br><a href="https://mangadex.org/"  target="_blank">MangaDex</a></br>
+            <br><a href="https://comick.io/home2"  target="_blank">Comick</a></br>
+        </p>
+        
+        <p>Now, what are my favorite places? They may be fictional, but they are my favorites!</p>
+        <ol>
+            <li><br>Penacony</br> <img src="https://act-webstatic.hoyoverse.com/puzzle/hkrpg/pz_VE2tAVK3pd/resource/puzzle/2024/04/03/5074124d193b57b8f9d00aae545436c2_2485595028526015811.jpg?x-oss-process=image/format,webp/quality,Q_90" alt="Penacony from Star Rail" height="253" width="544"></li>
+            <li><br>Blackhole from interstellar movie</br> <img src="https://www.denofgeek.com/wp-content/uploads/2022/02/spaceship-and-black-hole-in-Interstellar.jpeg?fit=1800%2C1125" alt="blackhole from interstellar movie" height="253" width="544"></li>
+            <li><br>Milkyways places</br> <img src="https://i.pinimg.com/736x/2c/38/97/2c38970e791c3d4969bf3555e72fe10a.jpg" alt="MilkyWays" height="253" width="544"></li>
+        </ol>
+        
+        <table style="width: 750    px" border="1">
+            <tr>
+                <th rowspan="2">Days</th>
+                <th colspan="7">Time<th>
+                
+                </tr>
+
+            <tr>
+                <th>8:00</th>
+                <th>9:00</th>
+                <th>10:00</th>
+                <th>11:00</th>
+                <th>11:30</th>
+                <th>12:00</th>
+            </tr>
+            <tr>
+
+                <th>Mon</th>
+                <td>Course 1</td>
+                <td>Course 2</td>
+                <td>Course 3</td>
+                <td rowspan="5"> BREAK</td>
+                <td>Course 5</td>
+                <td>-- </td>
+            </tr>
+            <tr>
+
+                <th>Tue</th>
+                <td colspan="2">--</td>
+                <td>Course 2</td>
+                <td>Course 4</td>
+                <td>Course 1</td>
+            </tr>
+
+            <tr>
+                <th>Wed</th>
+                <td>Course 1</td>
+                <td colspan="2">--</td>
+                <td>Course 2</td>
+                <td>--</td>
+                
+            </tr>
+
+            <tr>
+                <th>Thr</th>
+                <td rowspan="2" colspan="1">Course 2</td>
+                <td>Course 2</td>
+                <td> Course 3</td>
+                <td rowspan="2" colspan="2"> Thesis</td>
+            </tr>
+
+            <tr>
+                <th>Fri</th>
+                <td>--</td>
+                <td>Course 1</td>
+                
+
+        </table>
+
+        <form style="padding: 0; margin: 0;">
+            <label for="name">Full Name</label>
+            <br>
+            <input 
+               type="text" 
+               id="Full Name" 
+               name="name" 
+               required 
+            /><br/><br/>
+            
+            <label for="Gender">Gender</label>
+            <br/><br/>
+            <input 
+               type="radio"
+               id="male"
+              name="Gender"
+              required />Male
+            <br></br>
+            <input 
+              type="radio"
+              id="female"
+              name="Gender"
+              required />Female
+            <br/><br/>
+
+            <label for="Handphone">Handphone Number</label>
+            <br/><br/>
+            <input 
+                type="number" 
+                id="PhoneNumber" 
+                name="Handphone" 
+                required
+            /><br/><br/>
+
+            
+            <label for="email">Email</label>
+            <br>
+            <input 
+             type="email" 
+               id="email" 
+             name="email" 
+             required />
+            <br /><br />
+
+
+            <label for="Dob">Date of birth</label>
+            <br></br>
+            <input style="height: 20x;"
+                type="date" 
+                id="Dob" 
+                name="dob"
+                required />
+                <br /><br />
+            
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Clear"/>
+        </form>
+    </main>
+
+    <footer>
+        made by Lunetta Maheswara Grahawijaya 
+        <br>23523082<br>
+        <br><a href="jumpscare.mp4" target="_blank">Secret Link :D</a><br>
+         
+    </footer>
+        
+</body>
+</html>
