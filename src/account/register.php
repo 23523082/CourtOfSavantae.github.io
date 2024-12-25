@@ -21,11 +21,11 @@
 
     <!-- Content Area -->
     <header>
-       <image src="./source/Huanglong_Emblem.jpg"></image>
+        <img src="./source/Huanglong_Emblem.jpg" alt="Logo">
     </header>
 
     <main>
-        <form action="registerscript.php" method="POST">
+        <form id="registerForm" action="registerscript.php" method="POST" onsubmit="startTransition(event)">
             <div>
                 <label for="username">Username:</label>
                 <input type="username" name="username" required>
@@ -51,21 +51,36 @@
     <footer>
     </footer>
 
+    <!-- Transition Overlay -->
+    <div id="transition-overlay"></div>
+
     <!-- Audio File -->
-    <audio id="audio-player" src="./source/background.mp3" loop></audio>
+    <audio id="audio-player" src="https://dl.dropboxusercontent.com/scl/fi/ga9ralp47heq4k1deecmh/Luna-Fake-Ascension-OST-Menu-BGM-Looped-Punishing-Gray-Raven.mp3?rlkey=nz5hcls348s8snq26zfjpe4y6&st=0j906q7l" loop></audio>
+    <audio id="submit-audio" src="source/click.mp3"></audio>
+
 
     <!-- JavaScript to Handle Audio Play -->
     <script>
-        document.addEventListener('click', musicPlay);
-
-        function musicPlay() {
-            // Play the audio when the user clicks anywhere on the page
+        // Play background music on user interaction
+        document.addEventListener('click', function musicPlay() {
             document.getElementById('audio-player').play();
-            // Remove the event listener after the audio starts playing to prevent it from being triggered multiple times
-            document.removeEventListener('click', musicPlay);
+            document.removeEventListener('click', musicPlay); // Remove listener to prevent multiple triggers
+        });
+
+        // Transition and form submission handling
+        function startTransition(event) {
+            event.preventDefault(); // Prevent immediate form submission
+            const overlay = document.getElementById('transition-overlay');
+            overlay.style.display = 'block'; // Show the overlay
+            overlay.classList.add('active'); // Trigger animation
+
+            document.getElementById('submit-audio').play();
+
+            setTimeout(() => {
+                document.getElementById('registerForm').submit(); // Submit the form programmatically
+            }, 1000); // Delay matches animation duration
         }
     </script>
-
 </body>
 
 </html>
