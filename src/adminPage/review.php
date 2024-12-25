@@ -22,8 +22,8 @@ $stmt->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Court of Savantae</title>
-    <link rel="stylesheet" href="contentstyle.css">
-    <script src="articlejs.js" defer></script>
+    <link rel="stylesheet" href="../articleview/contentstyle.css">
+    <script src="../articleview/articlejs.js" defer></script>
 </head>
 <body>
     <header>

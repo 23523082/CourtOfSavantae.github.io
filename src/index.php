@@ -15,7 +15,6 @@ $result = $stmt->get_result();
 $userData = $result->fetch_assoc();
 $stmt->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,41 +22,7 @@ $stmt->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Court Of Savantae</title>
     <link rel="stylesheet" href="indexStyle.css">
-    <script>
-        function toggleVideo() {
-            var video = document.getElementById("background-video");
-            var disableButton = document.getElementById("disable-video");
-            var enableButton = document.getElementById("enable-video");
-
-            // If video is hidden, show it and toggle buttons
-            if (video.style.display === "none") {
-                video.style.display = "block";   // Show video
-                disableButton.style.display = "none";  // Hide disable button
-                enableButton.style.display = "inline"; // Show enable button
-                sessionStorage.setItem("videoState", "enabled"); // Store video state
-            } else {
-                video.style.display = "none";    // Hide video
-                disableButton.style.display = "inline"; // Show disable button
-                enableButton.style.display = "none";    // Hide enable button
-                sessionStorage.setItem("videoState", "disabled"); // Store video state
-            }
-        }
-
-        window.onload = function() {
-            // Check if the video state is stored in sessionStorage
-            var videoState = sessionStorage.getItem("videoState");
-
-            if (videoState === "disabled") {
-                document.getElementById("background-video").style.display = "none";  // Hide video
-                document.getElementById("disable-video").style.display = "none";     // Hide disable button
-                document.getElementById("enable-video").style.display = "inline";    // Show enable button
-            } else {
-                document.getElementById("background-video").style.display = "block"; // Show video
-                document.getElementById("disable-video").style.display = "inline";   // Show disable button
-                document.getElementById("enable-video").style.display = "none";      // Hide enable button
-            }
-        };
-    </script>
+    <script src="indexjs.js" defer></script>
 </head>
 <body>
     <header>
@@ -72,6 +37,7 @@ $stmt->close();
                     <li><a href="newArticle/NewArticle.php">Create Article</a></li>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="logout.php">Logout</a></li>
+                    <li><a href="adminPage/adminDashboard.php">Admin</a></li>
                     <li><a href="#" id="disable-video" onclick="toggleVideo()">Disable Video</a></li>
                     <li><a href="#" id="enable-video" style="display: none;" onclick="toggleVideo()">Enable Video</a></li>
                 </ul>
@@ -102,7 +68,7 @@ $stmt->close();
                     echo '<h3>made by : ' . $row["maker"] . '</h3>';
                     echo '<small>Posted on ' . $row["date"] . '</small>';
                     echo '<p>' . substr($row["paragraph1"], 0, 100) . '...</p>'; 
-                    echo '<a href="article.php?id='. $row["id"].'">Read More</a>';
+                    echo '<a href="articleview/article.php?id='. $row["id"].'">Read More</a>';
                     echo '</article>';
                 }
             } else {
@@ -117,20 +83,5 @@ $stmt->close();
     <footer>
         <p>&copy; 2023 My Blog. All rights reserved.</p>
     </footer>
-    <script>
-        const audioPlayer = document.getElementById('audio-player');
-
-        // Resume audio playback if it was playing before
-        window.addEventListener('load', function () {
-            if (sessionStorage.getItem('audioPlaying') === 'true') {
-                audioPlayer.play();
-            }
-        });
-
-        document.addEventListener('click', function musicPlay() {
-            document.getElementById('audio-player').play();
-            document.removeEventListener('click', musicPlay); // Remove listener to prevent multiple triggers
-        });
-    </script>
 </body>
 </html>
