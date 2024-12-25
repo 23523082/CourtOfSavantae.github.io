@@ -13,7 +13,6 @@
     <div class="video-background">
         <video autoplay loop muted>
             <source src="./source/background.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
     </div>
 
@@ -22,15 +21,14 @@
 
     <!-- Content Area -->
     <header>
-        <h1>Welcome to Solaris-3.</h1>
+       <image src="./source/Huanglong_Emblem.jpg"></image>
     </header>
 
     <main>
-        <h2>"I exist because of you."<br><i>Shorekeeper</i></br></h2>
         <form action="registerscript.php" method="POST">
             <div>
                 <label for="username">Username:</label>
-                <input type="text" name="username" required>
+                <input type="username" name="username" required>
             </div>
             <div>
                 <label for="password">Password:</label>
@@ -51,9 +49,6 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 My Blog. All rights reserved.</p>
-        <p>Made by Lunetta Maheswara Grahawijaya</p>
-        <img src="" alt="">
     </footer>
 
     <!-- Audio File -->

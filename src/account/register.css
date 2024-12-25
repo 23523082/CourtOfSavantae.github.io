@@ -1,9 +1,11 @@
+/* Global Styles */
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     color: white;
     font-size: large;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .video-background {
@@ -21,6 +23,18 @@ video {
     object-fit: cover;
 }
 
+.overlay {
+    position: fixed; /* Fix overlay on the screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Cover the full viewport height */
+    min-height: 100%; /* Ensure it covers content when scrolling */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+/* Background Image */
 body {
     background-image: url(https://images.squarespace-cdn.com/content/v1/5fe4caeadae61a2f19719512/c632cb68-1346-4d50-909b-41ca41ad7e8e/Wuthering+Waves+-+Flow);
     background-size: cover;
@@ -29,23 +43,17 @@ body {
     background-attachment: fixed;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 0;
-}
-
+/* Layout Styles */
 header, main, footer {
     position: relative;
     z-index: 2;
     padding: 20px;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
+/* Typography */
 h1, h2 {
     color: #fff;
 }
@@ -55,32 +63,32 @@ form {
     padding: 20px;
     border-radius: 8px;
     width: 100%;
-    max-width: 400px; /* Controls the max width of the form */
+    max-width: 500px; /* Increased width for consistency */
     margin: 0 auto;
-    box-sizing: border-box; /* Ensures padding doesn't affect width calculation */
+    box-sizing: border-box;
 }
 
 input, select, button {
     width: 100%;
-    padding: 12px; /* Increased padding for better touch targets */
+    padding: 12px;
     margin: 10px 0;
     border-radius: 4px;
-    border: 1px solid #ddd; /* Light border for inputs */
-    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    border: 1px solid #ddd;
+    box-sizing: border-box;
 }
 
 button {
-    background-color:rgb(35, 0, 115);
+    background-color: rgb(35, 0, 115);
     color: white;
     cursor: pointer;
 }
-
 
 footer {
     margin-top: 20px;
     color: white;
 }
 
+/* Links */
 a {
     color: #ffffff;
     text-decoration: none;
@@ -89,4 +97,62 @@ a {
 a:hover {
     color: #00fffb;
     text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small devices (phones) */
+@media (max-width: 600px) {
+    body {
+        font-size: medium;
+    }
+
+    form {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    input, select, button {
+        padding: 10px;
+    }
+}
+
+/* Medium devices (tablets and small desktops) */
+@media (max-width: 992px) {
+    body {
+        font-size: medium;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    form {
+        max-width: 80%;
+        padding: 18px;
+    }
+}
+
+/* Larger devices (desktops and larger screens) */
+@media (min-width: 1200px) {
+    body {
+        font-size: large;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    form {
+        max-width: 500px; /* Increased width for consistency */
+        padding: 20px;
+    }
 }

@@ -9,7 +9,7 @@ require '../dbconnections.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="logins.css">
+    <link rel="stylesheet" href="register.css">
 </hea>
 
 <body>
@@ -17,7 +17,6 @@ require '../dbconnections.php';
     <div class="video-background">
         <video autoplay loop muted>
             <source src="source/background.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
     </div>
 
@@ -26,11 +25,10 @@ require '../dbconnections.php';
 
     <!-- Content Area -->
     <header>
-        <h1>Welcome, Rover.</h1>
+        <image src="./source/Huanglong_Emblem.jpg"></image>
     </header>
 
     <main>
-        <h2>Login to continue.</h2>
         <form action="Loginscript.php" method="POST">
             <div>
                 <label for="username">Username:</label>
@@ -41,18 +39,17 @@ require '../dbconnections.php';
                 <input type="password" id="password" name="password" re quired>
             </div>
             <div>
-                <button type="submit">Login</button>
+                <button type="submit" onclick="playSubmitAudio()">Login</button>
                 <p>no acccount ? <a href="register.php">Register</a></p>
             </div>
         </form>
     </main>
 
-    <footer>
-        <p>&copy; 2024 My Blog. All rights reserved.</p>
-    </footer>
+        
 
     <!-- Audio File -->
     <audio id="audio-player" src="source/background.mp3" loop></audio>
+    <audio id="submit-audio" src="source/click.mp3"></audio>
 
     <!-- JavaScript to Handle Audio Play -->
     <script>
@@ -64,6 +61,10 @@ require '../dbconnections.php';
             // Remove the event listener after the audio starts playing to prevent it from being triggered multiple times
             document.removeEventListener('click', musicPlay);
         }
+        function playSubmitAudio() {
+        // Play the audio when the submit button is clicked
+        document.getElementById('submit-audio').play();
+    }
     </script>
 
 </body>

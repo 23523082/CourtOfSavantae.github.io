@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['id']) || !isset($_SESSION['username_input'])|| !isset($_SESSION['type'])){
-    header("Location: account/login.php");
+if (!isset($_SESSION['id']) || !isset($_SESSION['username'])|| !isset($_SESSION['type']) == 'admin'){
+    header("Location: ../account/login.php");
     exit;
   }
   ?>
