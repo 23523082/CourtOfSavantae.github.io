@@ -68,7 +68,7 @@ $stmt->close();
             <nav>
                 <ul>
                     <li><a href="myfirstweb/MyfirstWebPage.HTML">My first Html</a></li>
-                    <li><a href="#about">About Me</a></li>
+                    <li><a href="aboutMe/aboutMe.php">About Me</a></li>
                     <li><a href="newArticle/NewArticle.php">Create Article</a></li>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="logout.php">Logout</a></li>
