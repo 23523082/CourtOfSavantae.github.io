@@ -73,7 +73,7 @@ $stmt->close();
         <section id="main">
             <?php
             require 'dbconnections.php';
-            $sql = "SELECT id, title, date, paragraph1 FROM content ORDER BY date DESC";
+            $sql = "SELECT id, title, date, paragraph1, maker FROM content ORDER BY date DESC";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {

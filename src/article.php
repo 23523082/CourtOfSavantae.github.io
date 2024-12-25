@@ -25,9 +25,11 @@ require 'articlescript.php'; ?>
             <h1><?php echo htmlspecialchars($title); ?></h1>
             <div class="meta">
                 <small>Posted on: <?php echo htmlspecialchars($date); ?></small>
+                <p></p>
+                <small>By: <?php echo htmlspecialchars($maker); ?></small>
             </div>
         <?php if (!empty($image)) : ?>
-            <img src="<?php echo htmlspecialchars($image); ?>" />
+            <img src="uploads/<?php echo htmlspecialchars($image); ?>" />
         <?php endif;?>
             <p><?php echo htmlspecialchars($paragraph1); ?></p>
         <?php if (!empty($linkyt)) : ?>

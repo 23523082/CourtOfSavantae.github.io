@@ -1,3 +1,12 @@
+<?php 
+session_start(); // Ensure the session is started to get logged-in user's data
+
+// Check if the user is logged in
+if (!isset($_SESSION['id']) || !isset($_SESSION['username'])) {
+    header("Location: account/login.php");
+    exit;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,34 +28,25 @@
             <li><a href="#about">About Me</a></li>
             <li><a href="NewArticle.php">Create Article</a></li>
             <li><a href="index.php">Home</a></li>
-            </ul>
+        </ul>
     </nav>
 </header>
 
 <div class="container">
     <div class="blog-post">
         <h2>Create New Article</h2>
-        <form action="NewArticleScript.php" method="post">
+        <form action="NewArticleScript.php" method="post" enctype="multipart/form-data">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required>
 
-            <label for="image">dropbox image link, last part of link must be raw=1 </label>
-            <textarea id="image" name="image" ></textarea>
+            <label for="image">Upload Image (jpg, png, gif, MAX 50MB):</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
 
             <label for="date">Date:</label>
-            <input type="date" id="date" name="date" placeholder="YYYY-MM-DD-TT" required>
+            <input type="date" id="date" name="date" required>
 
-            <label for="paragraph1">Paragraph 1:</label>
-            <textarea id="paragraph1" name="paragraph1" required></textarea>
-
-            <label for="paragraph2">Paragraph 2:</label>
-            <textarea id="paragraph2" name="paragraph2"></textarea>
-
-            <label for="paragraph3">Paragraph 3:</label>
-            <textarea id="paragraph3" name="paragraph3"></textarea>
-
-            <label for="paragraph4">Paragraph 4:</label>
-            <textarea id="paragraph4" name="paragraph4"></textarea>
+            <label for="paragraph">Paragraph:</label>
+            <textarea id="paragraph" name="paragraph" required></textarea>
 
             <label for="linkyt">YouTube Video Link:</label>
             <input type="text" id="linkyt" name="linkyt" placeholder="Enter YouTube video ID">
