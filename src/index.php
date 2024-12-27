@@ -58,7 +58,10 @@ $stmt->close();
         <section id="main">
             <?php
             require 'dbconnections.php';
-            $sql = "SELECT id, title, date, paragraph1, maker FROM content ORDER BY date DESC";
+            $sql = "SELECT content.id, content.title, content.date, content.paragraph1, login.username AS maker
+                    FROM content
+                    JOIN login ON content.maker = login.id
+                    ORDER BY content.date DESC";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {

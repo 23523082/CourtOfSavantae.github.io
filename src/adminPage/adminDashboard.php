@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'] != 'admin') {
-    header("Location: ../account/login.php");
+    header("Location: ../index.php");
     exit;
 }
 ?>
@@ -46,18 +46,25 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'
         <h2>Registered Users</h2>
         <ul class="user-list">
             <?php
-            // Include database connection
             require '../dbconnections.php';
             $sql = "SELECT id, username, type FROM login";
             $result = $conn->query($sql);
             while ($row = $result->fetch_assoc()) {
                 echo "<li>";
                 echo "Username: " . htmlspecialchars($row['username']);
-                echo "<P></p>";
-                echo "Type: ". htmlspecialchars($row['type']);
-                echo "<br></br>";
-                echo "<button class='change-type'>Change Type</button>";
-                echo "<button>Delete</button>";
+                echo "<p>Type: " . htmlspecialchars($row['type']) . "</p>";
+                echo "<form class='user-action-form' method='POST' action='user_actions.php'>";
+                echo "<input type='hidden' name='user_id' value='" . htmlspecialchars($row['id']) . "'>";
+                echo "<label for='type-change'>Change Type:</label>";
+                echo "<select name='new_type' id='type-change'>";
+                echo "<option value=''>Select New Type</option>";
+                echo "<option value='reader'>Reader</option>";
+                echo "<option value='maker'>Maker</option>";
+                echo "<option value='admin'>Admin</option>";
+                echo "</select>";
+                echo "<button type='submit' name='action' value='change_type'>Change Type</button>";
+                echo "<button type='submit' name='action' value='delete'>Delete</button>";
+                echo "</form>";
                 echo "</li>";
             }
             ?>
@@ -67,28 +74,33 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'
     <!-- Right section for article review -->
     <section class="right">
     <h2>Articles Waiting for Review</h2>
-    <ul class="article-list">
+    <div class="container">
+        <ul class="article-list">
         <?php
         // Query for articles awaiting review, no status column
-        $sql = "SELECT id, title, image, paragraph1, ytlink, maker FROM queryarticle";
+        $sql = "SELECT id, title, image, paragraph1, ytlink, maker, date FROM queryarticle";
         $result = $conn->query($sql);
         while ($row = $result->fetch_assoc()) {
-            echo "<li>";
-            echo "ID: " . htmlspecialchars($row['id']) . "<br>";
-            echo "Title: " . htmlspecialchars($row['title']) . "<br>";
-            echo "Maker ID: " . htmlspecialchars($row['maker']) . "<br>";
-            echo "Image: <img src='../uploads/" . htmlspecialchars($row['image']) . "' alt='Image' width='100'><br>";
-            echo "Paragraph: " . htmlspecialchars($row['paragraph1']) . "<br>";
+            echo "<li class='article-item'>";
+            echo "<p><strong>ID:</strong> " . htmlspecialchars($row['id']) . "</p>";
+            echo "<p><strong>Title:</strong> " . htmlspecialchars($row['title']) . "</p>";
+            echo "<p><strong>date:</strong> " .  htmlspecialchars($row['date']) . "</p>";
+            echo "<p><strong>Maker ID:</strong> " . htmlspecialchars($row['maker']) . "</p>";
+            echo "<p><strong>Image:</strong><br> <img src='../uploads/" . htmlspecialchars($row['image']) . "' alt='Image' width='100'></p>";
+            echo "<p><strong>Paragraph:</strong> "  . substr($row["paragraph1"], 0, length: 30) .  "......</p>";
             if ($row['ytlink']) {
-                echo "YouTube Link: <a href='https://www.youtube.com/watch?v=" . htmlspecialchars($row['ytlink']) . "' target='_blank'>Watch</a><br>";
+                echo "<p><strong>YouTube Link:</strong> <a href='https://www.youtube.com/watch?v=" . htmlspecialchars($row['ytlink']) . "' target='_blank'>Watch</a></p>";
             }
-            echo "<button class='accept-article'>Accept</button>";
-            echo "<button>Reject</button>";
+            echo "<p>";
+            echo "<a href='#' onclick='acceptQuery(" . $row["id"] . ")'>Accept</a> | ";
+            echo "<a href='#' onclick='rejectQuery(" . $row["id"] . ")'>Reject</a>";
+            echo "</p>";
             echo "</li>";
         }
         ?>
-    </ul>
-</section>
+        </ul>
+    </div>
+    </section>
 
 
 </div>
@@ -98,6 +110,8 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'
 <footer>
     <p>&copy; 2023 My Blog. All rights reserved.</p>
 </footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="adminjs.js"></script>
 
 </body>
 </html>

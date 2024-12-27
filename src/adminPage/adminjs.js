@@ -45,3 +45,50 @@ const audioPlayer = document.getElementById('audio-player');
             document.getElementById('audio-player').play();
             document.removeEventListener('click', musicPlay); // Remove listener to prevent multiple triggers
         });
+
+        function acceptQuery(id) {
+            if (confirm("Are you sure you want to accept this catalog query?")) {
+                $.ajax({
+                    url: "article_query.php",
+                    type: "POST",
+                    data: { id: id, action: "accept" },
+                    success: function (response) {
+                        console.log(response); // Debugging
+                        if (response.trim() === "success") {
+                            alert("Query accepted successfully!");
+                            location.reload();
+                        } else {
+                            alert("Error: " + response);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX Error: " + error);
+                        alert("An error occurred while processing your request.");
+                    }
+                });
+            }
+        }
+        
+        function rejectQuery(id) {
+            if (confirm("Are you sure you want to reject this catalog query?")) {
+                $.ajax({
+                    url: "article_query.php",
+                    type: "POST",
+                    data: { id: id, action: "reject" },
+                    success: function (response) {
+                        console.log(response); // Debugging
+                        if (response.trim() === "success") {
+                            alert("Query rejected successfully!");
+                            location.reload();
+                        } else {
+                            alert("Error: " + response);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX Error: " + error);
+                        alert("An error occurred while processing your request.");
+                    }
+                });
+            }
+        }
+        

@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "Password hashed successfully.<br>";
 
         // Insert into database
-        $sql = "INSERT INTO login  (username, password, type)
+        $sql = "INSERT INTO  login  (username, password, type)
                 VALUES (?, ?, ?)";
         if ($stmt = $conn->prepare($sql)) {
             echo "Insert query prepared successfully.<br>";
@@ -62,4 +62,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
    
     }
 
-?>
+

@@ -5,7 +5,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || !isset($_SESSION
     exit;
 }
 require '../dbconnections.php';  
-require 'articlescript.php'; 
+require 'articleviewScript.php'; 
 $userId = $_SESSION['id'];
 $sql = "SELECT id, username, type FROM login WHERE id = ?";
 $stmt = $conn->prepare($sql);

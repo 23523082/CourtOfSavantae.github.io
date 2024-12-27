@@ -1,6 +1,6 @@
 <?php 
 session_start(); // Start the session to access session variables
-require 'dbconnections.php'; // Include your database connection
+require '../dbconnections.php'; // Include your database connection
 
 // Check if the user is logged in
 if (!isset($_SESSION['id']) || !isset($_SESSION['username'])) {
@@ -52,24 +52,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($imageSize <= $maxSize) {
                     // Sanitize the original image name to ensure it is safe for the filesystem
                     $imageNewName = basename($imageName); // Retain original filename
-                    $imageDestination = "uploads/" . $imageNewName;
+                    $imageDestination = "../uploads/" . $imageNewName;
 
                     // Check if file already exists and add a suffix to make it unique
                     if (file_exists($imageDestination)) {
                         // Adding a timestamp or unique identifier to avoid overwriting
                         $imageNewName = time() . '_' . $imageNewName;
-                        $imageDestination = "uploads/" . $imageNewName;
+                        $imageDestination = "../uploads/" . $imageNewName;
                     }
 
                     // Move the uploaded file to the uploads directory
                     if (move_uploaded_file($imageTmpName, $imageDestination)) {
                         // Prepare the SQL statement to insert the article into the database
-                        $sql = "INSERT INTO content (title, image, date, paragraph1, linkyt, maker) VALUES (?, ?, ?, ?, ?, ?)";
+                        $sql = "INSERT INTO queryarticle (title, image, date, paragraph1, ytlink, maker) VALUES (?, ?, ?, ?, ?, ?)";
                         if ($stmt = $conn->prepare($sql)) {
                             $stmt->bind_param("sssssi", $title, $imageNewName, $date, $paragraph, $linkyt, $maker);
                             $stmt->execute();
                             $stmt->close();
-                            header("Location: index.php");
+                            header("Location: ../index.php");
                         } else {
                             echo "Error: " . $conn->error;
                         }

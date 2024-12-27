@@ -140,6 +140,18 @@ video {
     padding: 0;
 }
 
+.article-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.article-item img {
+    display: block;
+    margin-top: 10px;
+}
+
+
 .article-list li {
     margin-bottom: 15px;
     padding: 10px;
@@ -161,6 +173,16 @@ video {
 .article-list li button:hover {
     background-color: rgb(20, 0, 85);
 }
+
+a {
+text-decoration: none;
+color: #007BFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 
 /* Footer */
 footer {

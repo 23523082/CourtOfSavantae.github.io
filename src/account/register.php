@@ -60,27 +60,7 @@
 
 
     <!-- JavaScript to Handle Audio Play -->
-    <script>
-        // Play background music on user interaction
-        document.addEventListener('click', function musicPlay() {
-            document.getElementById('audio-player').play();
-            document.removeEventListener('click', musicPlay); // Remove listener to prevent multiple triggers
-        });
-
-        // Transition and form submission handling
-        function startTransition(event) {
-            event.preventDefault(); // Prevent immediate form submission
-            const overlay = document.getElementById('transition-overlay');
-            overlay.style.display = 'block'; // Show the overlay
-            overlay.classList.add('active'); // Trigger animation
-
-            document.getElementById('submit-audio').play();
-
-            setTimeout(() => {
-                document.getElementById('registerForm').submit(); // Submit the form programmatically
-            }, 1000); // Delay matches animation duration
-        }
-    </script>
+    <script src="accountjs.js"></script>
 </body>
 
 </html>
