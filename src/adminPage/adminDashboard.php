@@ -25,6 +25,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'
         <ul>
             <li><a href="../index.php">Home</a></li>
             <li><a href="../logout.php">Logout</a></li>
+            <li><a href="acceptedArticles.php">Manage Article</a></li>
             <li><a href="#" id="disable-video" onclick="toggleVideo()">Disable Video</a></li>
             <li><a href="#" id="enable-video" style="display: none;" onclick="toggleVideo()">Enable Video</a></li>
 
@@ -43,33 +44,31 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'
 <div class="container">
     <!-- Left section for user management -->
     <section class="left">
-        <h2>Registered Users</h2>
-        <ul class="user-list">
-            <?php
-            require '../dbconnections.php';
-            $sql = "SELECT id, username, type FROM login";
-            $result = $conn->query($sql);
-            while ($row = $result->fetch_assoc()) {
-                echo "<li>";
-                echo "Username: " . htmlspecialchars($row['username']);
-                echo "<p>Type: " . htmlspecialchars($row['type']) . "</p>";
-                echo "<form class='user-action-form' method='POST' action='user_actions.php'>";
-                echo "<input type='hidden' name='user_id' value='" . htmlspecialchars($row['id']) . "'>";
-                echo "<label for='type-change'>Change Type:</label>";
-                echo "<select name='new_type' id='type-change'>";
-                echo "<option value=''>Select New Type</option>";
-                echo "<option value='reader'>Reader</option>";
-                echo "<option value='maker'>Maker</option>";
-                echo "<option value='admin'>Admin</option>";
-                echo "</select>";
-                echo "<button type='submit' name='action' value='change_type'>Change Type</button>";
-                echo "<button type='submit' name='action' value='delete'>Delete</button>";
-                echo "</form>";
-                echo "</li>";
-            }
-            ?>
-        </ul>
-    </section>
+    <h2>Registered Users</h2>
+    <ul class="user-list">
+        <?php
+        require '../dbconnections.php';
+        $sql = "SELECT id, username, type FROM login";
+        $result = $conn->query($sql);
+
+        while ($row = $result->fetch_assoc()) {
+            echo "<li>";
+            echo "Username: " . htmlspecialchars($row['username']);
+            echo "<p>Type: " . htmlspecialchars($row['type']) . "</p>";
+            echo "<form class='user-action-form' method='POST' action='deleteUser.php'>";
+            echo "<input type='hidden' name='user_id' value='" . htmlspecialchars($row['id']) . "'>";
+            echo "<button type='submit' name='action' value='delete' onclick='return confirm(\"Are you sure you want to delete this user?\")'>Delete</button>";
+            echo "</form>";
+            echo "<form class='user-action-form' method=    'GET' action='editUser.php'>";
+            echo "<input type='hidden' name='id' value='" . htmlspecialchars($row['id']) . "'>";
+            echo "<button type='submit'>Edit User</button>";
+            echo "</form>";
+            
+            echo "</li>";
+        }
+        ?>
+    </ul>
+</section>
 
     <!-- Right section for article review -->
     <section class="right">
@@ -86,11 +85,10 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'
             echo "<p><strong>Title:</strong> " . htmlspecialchars($row['title']) . "</p>";
             echo "<p><strong>date:</strong> " .  htmlspecialchars($row['date']) . "</p>";
             echo "<p><strong>Maker ID:</strong> " . htmlspecialchars($row['maker']) . "</p>";
-            echo "<p><strong>Image:</strong><br> <img src='../uploads/" . htmlspecialchars($row['image']) . "' alt='Image' width='100'></p>";
-            echo "<p><strong>Paragraph:</strong> "  . substr($row["paragraph1"], 0, length: 30) .  "......</p>";
             if ($row['ytlink']) {
                 echo "<p><strong>YouTube Link:</strong> <a href='https://www.youtube.com/watch?v=" . htmlspecialchars($row['ytlink']) . "' target='_blank'>Watch</a></p>";
             }
+            echo '<a href="review.php?id='. $row["id"].'">Review</a>';
             echo "<p>";
             echo "<a href='#' onclick='acceptQuery(" . $row["id"] . ")'>Accept</a> | ";
             echo "<a href='#' onclick='rejectQuery(" . $row["id"] . ")'>Reject</a>";
@@ -110,7 +108,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'
 <footer>
     <p>&copy; 2023 My Blog. All rights reserved.</p>
 </footer>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="adminjs.js"></script>
 
 </body>

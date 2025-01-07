@@ -55,6 +55,58 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* edituser exclusive css */
+
+form input[type="text"],
+form select {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+form input[type="text"]:focus,
+form select:focus {
+    border-color: rgb(35, 0, 115);
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 4px 8px rgba(35, 0, 115, 0.4);
+    outline: none;
+}
+
+
+form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+    display: block;
+}
+
+
+form button[type="submit"] {
+    background-color: rgb(35, 0, 115);
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: rgb(20, 0, 85);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
 /* Main Container */
 .container {
     max-width: 1200px;
@@ -62,9 +114,15 @@ nav ul li a:hover {
     padding: 20px;
     flex-grow: 1;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; 
     gap: 20px;
     z-index: 15;
+}
+
+form {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
 }
 
 /* Admin Dashboard Styles */
@@ -74,8 +132,23 @@ nav ul li a:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    width: 45%;
+    width: 100%; /* Ensure full-width usage in smaller viewports */
+    max-width: none; /* Remove fixed width constraints */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
+
+form .button-group {
+    display: flex;
+    gap: 10px; /* Add horizontal spacing between buttons */
+    justify-content: flex-start; /* Align buttons to the left */
+}
+
+form .button-group button {
+    flex: 1; /* Ensure buttons scale evenly if needed */
+}
+
 
 /* User List */
 .user-list {
@@ -84,10 +157,14 @@ nav ul li a:hover {
 }
 
 .user-list li {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space username, type, and buttons */
     margin-bottom: 15px;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
+    flex-wrap: wrap; /* Ensure elements wrap properly in smaller screens */
 }
 
 .user-list li button {
@@ -95,10 +172,11 @@ nav ul li a:hover {
     color: white;
     cursor: pointer;
     padding: 8px 12px;
-    margin-left: 10px;
+    margin-left: 5px; 
     border-radius: 4px;
     border: 1px solid #ddd;
     box-sizing: border-box;
+    
 }
 
 .user-list li button:hover {
@@ -138,24 +216,27 @@ video {
 .article-list {
     list-style: none;
     padding: 0;
+    display: flex; /* Display list items in a row */
+    flex-wrap: wrap; /* Allow wrapping to the next line if necessary */
+    gap: 15px; /* Add space between items */
+    justify-content: space-evenly; /* Distribute space evenly */
 }
 
 .article-item {
+    flex: 0 0 calc(33.33% - 30px); /* Set each item to take 1/3 of the row minus the gap */
     margin-bottom: 20px;
     padding: 15px;
-    border-bottom: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
 }
 
 .article-item img {
     display: block;
-    margin-top: 10px;
-}
-
-
-.article-list li {
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
+    margin: 10px auto; /* Center the image horizontally */
+    max-width: 100%; /* Ensure the image fits within the item */
+    height: auto;
     border-radius: 5px;
 }
 
@@ -164,10 +245,14 @@ video {
     color: white;
     cursor: pointer;
     padding: 8px 12px;
-    margin-left: 10px;
+    margin-top: 10px;
     border-radius: 4px;
     border: 1px solid #ddd;
     box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Center-align buttons */
+    width: fit-content; /* Shrink button width to content size */
 }
 
 .article-list li button:hover {

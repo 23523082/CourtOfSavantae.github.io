@@ -35,7 +35,6 @@ $stmt->close();
                     <li><a href="myfirstweb/MyfirstWebPage.HTML">My first Html</a></li>
                     <li><a href="aboutMe/aboutMe.php">About Me</a></li>
                     <li><a href="newArticle/NewArticle.php">Create Article</a></li>
-                    <li><a href="index.php">Home</a></li>
                     <li><a href="logout.php">Logout</a></li>
                     <li><a href="adminPage/adminDashboard.php">Admin</a></li>
                     <li><a href="#" id="disable-video" onclick="toggleVideo()">Disable Video</a></li>
