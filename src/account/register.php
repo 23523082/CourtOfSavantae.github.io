@@ -9,17 +9,17 @@
 </head>
 
 <body>
-    <!-- Video Background -->
+   
     <div class="video-background">
         <video autoplay loop muted>
             <source src="./source/background.mp4" type="video/mp4">
         </video>
     </div>
 
-    <!-- Overlay to Darken Background -->
+    
     <div class="overlay"></div>
 
-    <!-- Content Area -->
+    
     <header>
         <img src="./source/Huanglong_Emblem.jpg" alt="Logo">
     </header>
@@ -51,15 +51,15 @@
     <footer>
     </footer>
 
-    <!-- Transition Overlay -->
+    
     <div id="transition-overlay"></div>
 
-    <!-- Audio File -->
+    
     <audio id="audio-player" src="https://dl.dropboxusercontent.com/scl/fi/ga9ralp47heq4k1deecmh/Luna-Fake-Ascension-OST-Menu-BGM-Looped-Punishing-Gray-Raven.mp3?rlkey=nz5hcls348s8snq26zfjpe4y6&st=0j906q7l" loop></audio>
     <audio id="submit-audio" src="source/click.mp3"></audio>
 
 
-    <!-- JavaScript to Handle Audio Play -->
+   
     <script src="accountjs.js"></script>
 </body>
 

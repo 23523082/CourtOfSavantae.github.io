@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require '../dbconnections.php'; // Ensure this file sets up $conn for the connection
+require '../dbconnections.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
@@ -11,13 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST['username'];
     $type = $_POST['type'];
 
-    // Validate input
+   
     if (empty($username) || empty($password)|| empty($type)) {
         echo "<script>alert('All fields are required. Please fill out the form completely.');</script>";
         exit;
     }
 
-        // Check if email exists
+        
         $checkEmailSQL = "SELECT username FROM login WHERE username = ?";
         if ($checkStmt = $conn->prepare($checkEmailSQL)) {
             echo "Email check query prepared successfully.<br>";
@@ -36,11 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             die("Error preparing username check query: " . $conn->error);
         }
 
-        // Hash the password
+        
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         echo "Password hashed successfully.<br>";
 
-        // Insert into database
+        
         $sql = "INSERT INTO  login  (username, password, type)
                 VALUES (?, ?, ?)";
         if ($stmt = $conn->prepare($sql)) {

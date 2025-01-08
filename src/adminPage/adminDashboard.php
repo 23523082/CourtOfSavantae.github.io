@@ -42,7 +42,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'
     </div>
 
 <div class="container">
-    <!-- Left section for user management -->
+    
     <section class="left">
     <h2>Registered Users</h2>
     <ul class="user-list">
@@ -70,7 +70,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'
     </ul>
 </section>
 
-    <!-- Right section for article review -->
+  
     <section class="right">
     <h2>Articles Waiting for Review</h2>
     <div class="container">

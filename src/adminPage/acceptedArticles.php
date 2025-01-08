@@ -40,7 +40,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'
 </div>
 
 <div class="container">
-    <!-- Article list section -->
+    
     <section class="right">
     <h2>Existing Articles</h2>
     <div class="container">
@@ -48,7 +48,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'
         <?php
         require '../dbconnections.php';
 
-        // Query to fetch articles and their creators' usernames
+        
         $sql = "SELECT content.id, content.title, content.date, login.username AS maker 
                 FROM content 
                 JOIN login ON content.maker = login.id 
@@ -61,8 +61,8 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'
             echo "<p><strong>Date:</strong> " . htmlspecialchars($row['date']) . "</p>";
             echo "<p><strong>Maker:</strong> " . htmlspecialchars($row['maker']) . "</p>";
             echo "<p><a href='../articleview/article.php?id=" . htmlspecialchars($row['id']) . "'>View Article</a></p>";
-            echo "<form class='user-action-form' method='POST' action='deleteUser.php'>";
-            echo "<input type='hidden' name='user_id' value='" . htmlspecialchars($row['id']) . "'>";
+            echo "<form class='user-action-form' method='POST' action='deleteArticle.php'>";
+            echo "<input type='hidden' name='id' value='" . htmlspecialchars($row['id']) . "'>";
             echo "<button type='submit' name='action' value='delete' onclick='return confirm(\"Are you sure you want to delete this user?\")'>Delete</button>";
             echo "</form>";
             echo "</li>";

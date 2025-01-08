@@ -132,8 +132,8 @@ form {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    width: 100%; /* Ensure full-width usage in smaller viewports */
-    max-width: none; /* Remove fixed width constraints */
+    width: 100%; 
+    max-width: none; 
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -141,12 +141,12 @@ form {
 
 form .button-group {
     display: flex;
-    gap: 10px; /* Add horizontal spacing between buttons */
-    justify-content: flex-start; /* Align buttons to the left */
+    gap: 10px; 
+    justify-content: flex-start;
 }
 
 form .button-group button {
-    flex: 1; /* Ensure buttons scale evenly if needed */
+    flex: 1; 
 }
 
 
@@ -158,13 +158,13 @@ form .button-group button {
 
 .user-list li {
     display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space username, type, and buttons */
+    align-items: center; 
+    justify-content: space-between; 
     margin-bottom: 15px;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
-    flex-wrap: wrap; /* Ensure elements wrap properly in smaller screens */
+    flex-wrap: wrap; 
 }
 
 .user-list li button {
@@ -191,7 +191,7 @@ form .button-group button {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1; /* Places the video behind everything else */
+    z-index: -1; 
 }
 
 video {
@@ -207,23 +207,23 @@ video {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-    z-index: 10; /* Ensures it is above the video background */
-    display: block; /* Makes sure it's visible */
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 10; 
+    display: block; 
 }
 
 /* Article List */
 .article-list {
     list-style: none;
     padding: 0;
-    display: flex; /* Display list items in a row */
-    flex-wrap: wrap; /* Allow wrapping to the next line if necessary */
-    gap: 15px; /* Add space between items */
-    justify-content: space-evenly; /* Distribute space evenly */
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px; 
+    justify-content: space-evenly; 
 }
 
 .article-item {
-    flex: 0 0 calc(33.33% - 30px); /* Set each item to take 1/3 of the row minus the gap */
+    flex: 0 0 calc(33.33% - 30px); 
     margin-bottom: 20px;
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -234,8 +234,8 @@ video {
 
 .article-item img {
     display: block;
-    margin: 10px auto; /* Center the image horizontally */
-    max-width: 100%; /* Ensure the image fits within the item */
+    margin: 10px auto; 
+    max-width: 100%; 
     height: auto;
     border-radius: 5px;
 }
@@ -251,8 +251,8 @@ video {
     box-sizing: border-box;
     display: block;
     margin-left: auto;
-    margin-right: auto; /* Center-align buttons */
-    width: fit-content; /* Shrink button width to content size */
+    margin-right: auto;
+    width: fit-content;
 }
 
 .article-list li button:hover {

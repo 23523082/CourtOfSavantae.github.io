@@ -12,7 +12,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    color: white; /* All text will be white by default */
+    color: white; 
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -21,27 +21,27 @@ body {
     flex-direction: column;
 }
 
-/* Black Transparent Background for All Components Except Main */
+
 header,
 footer {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.7); 
     width: 100%;
     padding: 20px 0;
-    margin: 0; /* Remove gaps */
-    border-radius: 0; /* Remove rounding */
-    border: none; /* Remove borders */
+    margin: 0; 
+    border-radius: 0; 
+    border: none; 
     text-align: center;
 }
 
-/* Ensure header inner elements are transparent */
+
 header .container {
-    background-color: transparent; /* Make inner container fully transparent */
+    background-color: transparent; /
     padding: 0;
 }
 
 header h1 {
     text-align: center;
-    color: white; /* White text */
+    color: white; 
     margin-bottom: 10px;
 }
 
@@ -51,7 +51,7 @@ nav ul {
     display: flex;
     justify-content: center;
     gap: 15px;
-    background-color: transparent; /* Ensure no background color on nav list */
+    background-color: transparent; 
     padding: 0;
     margin: 0;
 }
@@ -66,8 +66,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
-    color: rgb(35, 0, 115); /* Deep blue hover effect */
+    background-color: rgba(255, 255, 255, 0.2); 
+    color: rgb(35, 0, 115); 
     text-decoration: underline;
 }
 
@@ -76,14 +76,14 @@ nav ul li a:hover {
     max-width: 1200px;
     margin: auto;
     padding: 20px;
-    flex-grow: 1; /* Ensures the content takes up available space */
+    flex-grow: 1; 
 }
 
 /* Main Section */
 #main {
-    background-color: rgba(0, 0, 0, 0.7); /* Keep this section with the same transparency as header/footer */
+    background-color: rgba(0, 0, 0, 0.7); 
     padding: 20px;
-    margin-top: 20px; /* Ensure space from the header */
+    margin-top: 20px; 
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
@@ -92,7 +92,7 @@ nav ul li a:hover {
 .container {
     max-width: 800px;
     margin: 20px auto;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.7); 
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -155,9 +155,9 @@ nav ul li a:hover {
 }
 
 .center-text {
-    text-align: center; /* Centers the text horizontally */
-    display: block; /* Ensures the element behaves like a block-level element */
-    margin: 0 auto; /* Optional: To center the element itself if it's inside a container */
+    text-align: center; 
+    display: block; 
+    margin: 0 auto; 
 }
 
 
@@ -192,7 +192,7 @@ footer {
 
 /* Footer Links */
 footer a {
-    color: rgb(35, 0, 115); /* Deep blue link */
+    color: rgb(35, 0, 115); 
     text-decoration: underline;
 }
 

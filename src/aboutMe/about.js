@@ -1,4 +1,4 @@
-// Function to toggle video state
+
 function toggleVideo() {
     var video = document.getElementById("background-video");
     var disableButton = document.getElementById("disable-video");
@@ -36,7 +36,7 @@ window.onload = function () {
         document.removeEventListener("click", playAudio);
     });
 
-    // Fetch Instagram posts
+   
     fetchInstagramPosts();
 };
 

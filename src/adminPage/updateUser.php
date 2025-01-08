@@ -6,12 +6,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $type = $_POST['type'];
 
-    // Validate input
+    
     if (empty($username) || empty($type)) {
         die("All fields are required.");
     }
 
-    // Update user data
+    
     $sql = "UPDATE login SET username = ?, type = ? WHERE id = ?";
     $stmt = $conn->prepare($sql);
 
@@ -30,4 +30,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     die("Invalid request method.");
 }
-?>
+

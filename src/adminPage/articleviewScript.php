@@ -1,10 +1,10 @@
 <?php
 $articleId = $_GET['id'];
 
-// Create a new PDO instance to connect to the database
+
 $pdo = new PDO('mysql:host=localhost;dbname=article', 'Vibe', null);
 
-// Prepare the SQL statement to fetch article details along with the username of the maker
+
 $stmt = $pdo->prepare('
     SELECT 
         queryarticle.image, 

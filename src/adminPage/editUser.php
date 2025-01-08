@@ -1,14 +1,14 @@
 <?php
 require '../dbconnections.php';
 
-// Check if the user ID is passed in the URL
+
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     die("User ID not specified.");
 }
 
 $user_id = intval($_GET['id']); // Sanitize input
 
-// Fetch user data from the database
+
 $sql = "SELECT username, type FROM login WHERE id = ?";
 $stmt = $conn->prepare($sql);
 

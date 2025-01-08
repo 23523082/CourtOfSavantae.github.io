@@ -143,6 +143,144 @@ nav ul li a:hover {
     border-radius: 10px;
 }
 
+.comments-section {
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.7); /* Matches the article section's style */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds subtle shadow */
+    color: white;
+}
+
+.comments-section h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3); /* Underline for the title */
+    padding-bottom: 10px;
+}
+
+.comments-section form {
+    margin-bottom: 20px;
+}
+
+.comments-section form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    resize: none;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.comments-section form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* Placeholder with lower opacity */
+}
+
+.comments-section form button {
+    background-color: rgb(35, 0, 115);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comments-section form button:hover {
+    background-color: rgb(20, 0, 85);
+}
+
+.comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comments-list li {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.comments-list li strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.comments-list li small {
+    display: block;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.comments-list li p {
+    margin: 0;
+    color: white;
+    line-height: 1.4;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .comments-section {
+        padding: 15px;
+    }
+
+    .comments-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .comments-section form textarea {
+        font-size: 0.9rem;
+    }
+
+    .comments-section form button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .comments-list li {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .comments-section h2 {
+        font-size: 1.1rem;
+    }
+
+    .comments-section form textarea {
+        font-size: 0.85rem;
+    }
+
+    .comments-section form button {
+        font-size: 0.85rem;
+    }
+
+    .comments-list li strong {
+        font-size: 1rem;
+    }
+
+    .comments-list li small {
+        font-size: 0.8rem;
+    }
+
+    .comments-list li p {
+        font-size: 0.9rem;
+    }
+}
+
+
+
 /* Footer */
 footer {
     background-color: rgba(0, 0, 0, 0.7);

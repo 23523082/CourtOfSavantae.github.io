@@ -79,6 +79,38 @@ $stmt->close();
         </article>
     </div>
 
+    <section class="comments-section">
+    <h2>Comments</h2>
+    <form method="POST" action="submitComment.php">
+        <input type="hidden" name="article_id" value="<?php echo htmlspecialchars($articleId); ?>">
+        <textarea name="comment_text" rows="4" placeholder="Write your comment here..." required></textarea>
+        <button type="submit">Submit Comment</button>
+    </form>
+    <ul class="comments-list">
+        <?php
+        // Fetch and display comments for this article
+        $stmt = $conn->prepare("
+            SELECT c.comment_text, c.created_at, l.username
+            FROM comments c
+            JOIN login l ON c.user_id = l.id
+            WHERE c.article_id = ?
+            ORDER BY c.created_at DESC
+        ");
+        $stmt->bind_param("i", $articleId);
+        $stmt->execute();
+        $comments = $stmt->get_result();
+        while ($comment = $comments->fetch_assoc()) {
+            echo "<li>";
+            echo "<strong>" . htmlspecialchars($comment['username']) . "</strong> ";
+            echo "<small>(" . htmlspecialchars($comment['created_at']) . ")</small>";
+            echo "<p>" . htmlspecialchars($comment['comment_text']) . "</p>";
+            echo "</li>";
+        }
+        $stmt->close();
+        ?>
+    </ul>
+</section>
+
     <footer>
         <p>&copy; 2023 My Blog. All rights reserved.</p>
     </footer>

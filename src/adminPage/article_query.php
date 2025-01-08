@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $action = $_POST['action'];
 
         if ($action === 'accept') {
-            // Step 1: Retrieve the query details from queryarticle
+           
             $sql_query = "SELECT * FROM queryarticle WHERE id = ?";
             $stmt = $conn->prepare($sql_query);
             $stmt->bind_param("i", $id);
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
 
-                // Step 2: Insert the retrieved data into the content table
+                
                 $sql_insert = "INSERT INTO content (maker, title, date, image, paragraph1, linkyt) 
                                VALUES (?, ?, ?, ?, ?, ?)";
                 $stmt = $conn->prepare($sql_insert);
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 );
 
                 if ($stmt->execute()) {
-                    // Step 3: Delete the query from queryarticle
+                   
                     $sql_delete = "DELETE FROM queryarticle WHERE id = ?";
                     $stmt = $conn->prepare($sql_delete);
                     $stmt->bind_param("i", $id);
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $stmt->close();
         } elseif ($action === 'reject') {
-            // Step 4: Delete the query from queryarticle for the reject action
+           
             $sql_delete = "DELETE FROM queryarticle WHERE id = ?";
             $stmt = $conn->prepare($sql_delete);
             $stmt->bind_param("i", $id);
