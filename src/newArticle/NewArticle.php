@@ -1,7 +1,7 @@
 <?php 
 session_start();
 require '../dbconnections.php';
-if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || !isset($_SESSION['type'])){
+if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'] != 'maker'){
     header("Location: account/login.php");
     exit;
 }
@@ -56,7 +56,7 @@ $stmt->close();
             <input type="text" id="title" name="title" required>
 
             <label for="image">Upload Image (jpg, png, gif, MAX 50MB):</label>
-            <input type="file" id="image" name="image" accept="image/*" required>
+            <input type="file" id="image" name="image" accept="image/*" >
 
             <label for="date">Date:</label>
             <input type="date" id="date" name="date" required>

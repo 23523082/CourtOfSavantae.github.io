@@ -25,7 +25,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['username']) || $_SESSION['type'
         <ul>
             <li><a href="../index.php">Home</a></li>
             <li><a href="../logout.php">Logout</a></li>
-            <li><a href="../editArticle.php">Manage Article</a></li>
+            <li><a href="../adminPage/adminDashboard.php">Dashboard</a></li>
             <li><a href="#" id="disable-video" onclick="toggleVideo()">Disable Video</a></li>
             <li><a href="#" id="enable-video" style="display: none;" onclick="toggleVideo()">Enable Video</a></li>
         </ul>

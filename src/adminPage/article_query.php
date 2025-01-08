@@ -17,9 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
 
-                
-                $sql_insert = "INSERT INTO content (maker, title, date, image, paragraph1, linkyt) 
-                               VALUES (?, ?, ?, ?, ?, ?)";
+                // Insert data into the content table
+                $sql_insert = "INSERT INTO content (title, image, date, paragraph1, linkyt, maker) 
+                               VALUES (?, ?, ?, ?, ?, ?)";  
                 $stmt = $conn->prepare($sql_insert);
 
                 if (!$stmt) {
@@ -27,18 +27,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     exit;
                 }
 
+                // Bind parameters in the correct order
                 $stmt->bind_param(
-                    "isssss",
-                    $row['maker'],
-                    $row['title'],
-                    $row['image'],
-                    $row['date'],
-                    $row['paragraph1'],
-                    $row['linkyt']
+                    "ssssss", 
+                    $row['title'],      
+                    $row['image'],      
+                    $row['date'],       
+                    $row['paragraph1'], 
+                    $row['linkyt'],     
+                    $row['maker']       
                 );
 
                 if ($stmt->execute()) {
-                   
+                    // Delete from queryarticle if successfully inserted
                     $sql_delete = "DELETE FROM queryarticle WHERE id = ?";
                     $stmt = $conn->prepare($sql_delete);
                     $stmt->bind_param("i", $id);
@@ -57,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $stmt->close();
         } elseif ($action === 'reject') {
-           
+            // Delete the rejected query
             $sql_delete = "DELETE FROM queryarticle WHERE id = ?";
             $stmt = $conn->prepare($sql_delete);
             $stmt->bind_param("i", $id);
@@ -80,4 +81,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $conn->close();
-

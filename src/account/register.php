@@ -25,7 +25,7 @@
     </header>
 
     <main>
-        <form id="registerForm" action="registerscript.php" method="POST" onsubmit="startTransition(event)">
+        <form id="registerForm" action="registerscript.php" method="POST">
             <div>
                 <label for="username">Username:</label>
                 <input type="username" name="username" required>

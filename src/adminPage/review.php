@@ -23,7 +23,7 @@ $stmt->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Court of Savantae</title>
     <link rel="stylesheet" href="../articleview/contentstyle.css">
-    <script src="../articleview/articlejs.js" defer></script>
+    <script src="articlejs.js" defer></script>
 </head>
 <body>
     <header>
@@ -34,7 +34,7 @@ $stmt->close();
                     <li><a href="aboutMe/aboutMe.php">About Me</a></li>
                     <li><a href="newArticle/NewArticle.php">Create Article</a></li>
                     <li><a href="../index.php">Home</a></li>
-                    <li><a href="logout.php">Logout</a></li>
+                    <li><a href="../logout.php">Logout</a></li>
                     <li><a href="#" id="disable-video" onclick="toggleVideo()">Disable Video</a></li>
                     <li><a href="#" id="enable-video" style="display: none;" onclick="toggleVideo()">Enable Video</a></li>
                 </ul>
@@ -42,15 +42,14 @@ $stmt->close();
         </div>
     </header>
 
-    <div class="overlay"></div>
     <audio id="audio-player" src="https://dl.dropboxusercontent.com/scl/fi/ga9ralp47heq4k1deecmh/Luna-Fake-Ascension-OST-Menu-BGM-Looped-Punishing-Gray-Raven.mp3?rlkey=nz5hcls348s8snq26zfjpe4y6&st=0j906q7l" loop></audio>
-    <div class="video-background">
+    
+    <div class="video-container">
         <video autoplay loop muted id="background-video">
             <source src="../account/source/background.mp4" type="video/mp4">
         </video>
-    </div>
-
-
+        <div class="overlay"></div>
+    </div>  
 
     <div class="container">
         <article class="article">

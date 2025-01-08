@@ -10,7 +10,7 @@ $stmt = $pdo->prepare('
         queryarticle.image, 
         queryarticle.paragraph1,     
         queryarticle.title, 
-        queryarticle.linkyt, 
+        queryarticle.ytlink, 
         queryarticle.date, 
         queryarticle.maker,
         login.username
@@ -31,7 +31,7 @@ if ($article) {
     $paragraph1 = $article['paragraph1'];
     $date = $article['date'];
     $title = $article['title'];
-    $linkyt = $article['linkyt'];
+    $linkyt = $article['ytlink'];
     $maker = $article['username']; // Get the username from the maker's ID
 } else {
     // Handle the case when the article doesn't exist

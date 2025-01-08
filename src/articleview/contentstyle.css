@@ -145,10 +145,10 @@ nav ul li a:hover {
 
 .comments-section {
     margin-top: 40px;
-    background-color: rgba(0, 0, 0, 0.7); /* Matches the article section's style */
+    background-color: rgba(0, 0, 0, 0.7); 
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds subtle shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
     color: white;
 }
 
@@ -156,7 +156,7 @@ nav ul li a:hover {
     color: white;
     margin-bottom: 20px;
     font-size: 1.5rem;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3); /* Underline for the title */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3); 
     padding-bottom: 10px;
 }
 
@@ -177,7 +177,7 @@ nav ul li a:hover {
 }
 
 .comments-section form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6); /* Placeholder with lower opacity */
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .comments-section form button {
@@ -204,7 +204,7 @@ nav ul li a:hover {
 .comments-list li {
     margin-bottom: 15px;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent */
+    background-color: rgba(255, 255, 255, 0.1); 
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
